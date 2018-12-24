@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}My shop{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+
+<style>
+        #main_home {position:fixed;top:5%;border:2px solid rgba(0,172,236);
+        font-size:20px;width:10%;Height:70px;color:rgba(255,255,255,100);
+        background-color:rgba(0,172,236);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 17%;}
+        
+        #main_circle {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 32%;} 
+        
+        #main_message {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 58%;}    
+        
+        #main_box {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 72%;}   
+        
+        #main_add {position:fixed;top:3%;width:70px;
+        height:70px;left:50%;margin-left:-35px;} 
+        
+        #main_top {position:fixed;top:0px;left:0%;Width:100%;Height:103px;background-color:
+        rgba(255,255,255,100);border-bottom:2px solid rgba(0,174,239);}
+        
+        .divcss5{width:100%; height:600px;position:fixed;bottom:0px;} 
+        .divcss5 img{position:fixed;bottom:0px;max-width:68%;
+        _width:expression(this.width > 600 ? "600px" : this.width);} 
+        
+</style>
+
+<body style = "background:rgba(241,246,253)">
+           <div id ="main_top">
+            <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
+            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
+            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            </div>
+            </div>
+            <div style = "position:fixed;left:0%;bottom:0%;Width:100%;Height:546px;background-color:rgba(228,198,208)">
+            <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div>
+            <div style="position:absolute;Height:546px;bottom:0px;width:102%;overflow-y:scroll;overflow-x:hidden;">   
+            
+
+
+            <div style="position:absolute;top:0%;Height:546px;bottom:0px;width:102%;">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+            </div>
+            
+</body>
+</html>

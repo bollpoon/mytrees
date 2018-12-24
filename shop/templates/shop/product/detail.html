@@ -1,0 +1,119 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+{% block content %}
+
+<style>
+        #main_detail_product{position:absolute;left:9%;top:4%;
+        border-radius:20px 20px 20px 20px;
+        background-color:rgba(172,197,244,0.5);
+        text-align:center;width:80%;height:460px;
+        border:20px solid rgba(233,241,246,0.8);}
+        
+        #pic_top_1{float:left;left:8%;top:7%;
+        position:relative;width:400px;border-radius:20px 20px 20px 20px;}
+        
+        #pic_top{position:relative;float:left;height:400px;width:400px;overflow:hidden;
+        background-color:rgba(0,0,0);margin:0px;border-radius:45px 45px 45px 45px;
+        left:8%;top:7%;_width:expression(this.width > 240 ? "240px" : this.width);}
+        
+        
+        
+        #main_detail{position:relative;top:7%;text-align:center;
+        border-radius:10px 10px 10px 10px;
+        background-color:rgba(229,229,229,0.4);
+        left:586px;height:400px;width:440px;}
+        
+        #sale_name{position:relative;
+        float:left;left:0px;top:-380px;width:440px;
+        }
+        
+        #product_name{position:relative;
+        float:left;left:0px;top:-380px;width:400px;}
+        
+        #price{position:relative;
+        float:left;top:-380px;width:400px;}
+        
+        #main_Size_S{position:relative;float:left;left:140px;top:-396px;
+        width:33px;height:33px;border-radius:45px 45px 45px 45px;
+        margin:0px 5px;color:rgba(255,255,255);
+        background-color: #E4C6D0;border:2px solid rgba(255,255,255,0.5);}
+
+        
+        #main_Color{position:relative;float:left;left:-76px;top:-350px;
+        width:35px;height:35px;border-radius:90px 90px 90px 90px;
+        margin:0px 5px;color:rgba(255,255,255);
+        background-color: #E4C6D0;border:2px solid rgba(255,255,255,0.5);}
+       
+        #quality{position:relative;float:left;left:-216px;top:-286px;}
+        #addcart{position:relative;float:left;left:20px;top:-314px;
+        background-color:rgba(228,198,208);
+        }
+        
+        #quality_2{width:500px;height:200px;
+        position:relative;float:right;right:0px;top:-800px;
+        }
+        #addbox{position:relative;float:left;right:-380px;top:-282px;
+        background-color:rgba(172,197,244);}
+        
+        
+
+</style>
+    <div id="main_detail_product">
+        <img id="pic_top" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        <div id="main_detail">
+        <div id="sale_name"><h1>{{ product.name }}</h1></div>
+        <div id="product_name">{{ product.detail_name }}</div>
+        <p id="price">价格： ${{ product.minprice }} - {{ product.maxprice }}</p>
+            
+            <div style="position:relative;left:30px;width:360px;top:-380px;">发货地址： 河南郑州 至 浙江余杭</div>
+            <div style="position:relative;left:-40px; width:360px;top:-380px">邮费： 免邮费</div>
+            <div style="position:relative;left:-24px; width:360px;top:-380px">备注：15天内发货</div>
+            
+            <div style="position:relative;left:-76px;width:360px;top:-370px;">尺码</div>
+            <a href="/tree/shop"><input id= "main_Size_S" type="button" value="XS"></a>
+            <a href="/tree/shop"><input id= "main_Size_S" type="button" value="S"></a>
+            <a href="/tree/shop"><input id= "main_Size_S" type="button" value="M"></a>
+            <a href="/tree/shop"><input id= "main_Size_S" type="button" value="L"></a>
+            <a href="/tree/shop"><input id= "main_Size_S" type="button" value="XL"></a>
+            <div style="position:absolute;left:88px; top:300px;">颜色</div>
+            <a href="/tree/shop"><input id= "main_Color" type="button" value="粉"></a>
+            <a href="/tree/shop"><input id= "main_Color" type="button" value="蓝"></a>
+        
+        <div id="quality"><form  action="{% url 'cart:cart_add' product.id %}" method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        </div>
+        <input id="addcart" type="submit" value="Add to cart">
+        </form>
+        {{ product.description|linebreaks }}
+        </div>
+        
+        <div id="quality_2"><form  id="box" action="{% url 'box:box_add' product.id %}" method="post">
+        {{ box_product_form }}
+        {% csrf_token %}
+        </div>
+        <input id="addbox" type="submit" value="Add to box">
+        </form>
+        {{ product.description|linebreaks }}
+        </div>
+        
+    </div>
+                <div class="cart">
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% else %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% endif %}
+                {% endwith %}
+                </div>
+                
+{% endblock %}
+</div>

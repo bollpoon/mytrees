@@ -1,0 +1,220 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}{% endif %}
+{% endblock %}
+{% block content %}
+
+<style>
+        input::-webkit-input-placeholder {
+        background-color:rgba(255,255,255,0.5);color: #aab2bd; }
+        
+        #mian_category{position:absolute;Left:4%;top:15%;
+        width:40px;Height:40px;
+        text-align: center;color:rgba(255,255,255);
+        background-color:rgba(288,198,208);
+        border:7px solid rgba(233,241,246);
+        border-radius:90px 90px 90px 90px;
+        }
+        
+        #mian_self_interest{position:absolute;right:7%;top:15%;
+        width:40px;Height:40px;
+        text-align: center;color:rgba(255,255,255);
+        background-color:rgba(288,198,208);
+        border:7px solid rgba(233,241,246);
+        border-radius:90px 90px 90px 90px;
+        }
+        
+        #main_Choose_Left{position:absolute;
+        left:5%;top:19%;
+        width:18%;Height:21%;
+        background-color:rgba(172,197,244,0.8);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.8);}
+        
+        #main_Choose_Right{position:absolute;
+        Right:8%;top:19%;
+        width:18%;Height:21%;
+        background-color:rgba(172,197,244,0.8);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.8);}
+        
+        #main_Title_Left_A{
+        position:absolute;Left:8%;top:23%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}     
+        #main_Title_Left_B{position:absolute;Left:13%;top:24%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_C{position:absolute;Left:18.5%;top:24.5%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Left_D{position:absolute;Left:8%;top:29%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_E{position:absolute;Left:13%;top:30%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_F{position:absolute;Left:18%;top:30%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Left_G{position:absolute;Left:8%;top:35%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_H{position:absolute;Left:13%;top:36%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_I{position:absolute;Left:17.5%;top:36%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_A{position:absolute;Right:19%;top:23%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_B{position:absolute;Right:12%;top:24%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_C{position:absolute;Right:19%;top:29%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_D{position:absolute;Right:12%;top:30%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_E{position:absolute;Right:19%;top:35%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_F{position:absolute;Right:12%;top:36%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        
+        
+        #main_search{
+        position:absolute;top:5%;width:47%;left:30%;
+        text-align: center;
+        width:40%;Height:8%;
+        background-color:rgba(255,255,255);
+        border:2px solid rgba(255,255,255);
+        border-radius:10px
+        }
+        
+        #pic_top_1{position:relative;float:left;height:240px;width:240px;overflow:hidden;
+        background-color:rgba(0,0,0);margin:0px;border-radius:45px 45px 45px 45px;
+        left:60px;
+        }
+        
+        #pic_top{float:left;
+        position:relative;width:100%;
+        _width:expression(this.width > 240 ? "240px" : this.width);}
+        
+
+        
+        #main_detail{position:relative;top:-220px;width:100px;left:360px;}
+        
+        
+        #main_item{background-color:rgba(233,241,246,0.5);
+        float:left;position:relative;left:0px;width:500px;height:280px;
+        border-radius:20px 20px 20px 20px;
+        border:20px solid rgba(233,241,246,0.5);
+        margin:0px 0px 20px 94px;}
+        
+        #main_product{float:left;display:inline;top:50px;
+        position:relative;width:100%;}
+  
+</style>
+           <div><input id="main_search" type="text" name="account" placeholder="你想搜索什么呢..."><br />
+            </div>        
+            
+            <div>
+            <input id = "main_Choose_Left" >
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_A" type="button" value="服装"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_B" type="button" value="常服"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_C" type="button" value="JK"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_D" type="button" value="饰品"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_E" type="button" value="发簪"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_F" type="button" value="璎珞"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_G" type="button" value="家具"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Left_H" type="button" value="陶瓷"></a>
+            <a href= "/shop/list""{% url "shop:product_list" %}"><input id = "main_Title_Left_I" type="button" value="捕梦网"></a>
+            <input id="mian_category" type="Text" value="分类">
+            </div>
+            <div>
+            <input id = "main_Choose_Right" >
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_A" type="button" value="汉服复兴"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_B" type="button" value="长袄"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_C" type="button" value="汉服配饰"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_D" type="button" value="团扇"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_E" type="button" value="汉服日常"></a>
+            <a href= "{% url "shop:product_list" %}"><input id = "main_Title_Right_F" type="button" value="对夹"></a>
+            <input id="mian_self_interest" type="Text" value="感兴趣的">  
+
+            
+    <div style="position:absolute;top:45%;width:100%;text-align:center;">        
+    <div id="main_product">
+        {% for product in products %}
+            <div id= "main_item">
+            <br/>
+                <div style="display:inline;width:50%;margin:0px;"><a href="{{ product.get_absolute_url }}">
+                <div id="pic_top_1"><img id="pic_top" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.jpg" %}{% endif %}"></div>
+                </a>
+                
+                <br/><div id="main_detail"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+                <br/><div id="main_detail"><a href="{{ product.get_absolute_url }}">{{ product.detail_name }}</a></div>
+                <br/><div id="main_detail"><a href="{{ product.get_absolute_url }}">${{ product.minprice }}</a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+    
+            <div>
+            <div>
+                <div class="cart">
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% else %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% endif %}
+                {% endwith %}
+                </div>
+            </div>       
+{% endblock %}

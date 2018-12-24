@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}
+Thank you
+{% endblock %}
+
+{% block content %}
+<style>
+#back{position:absolute;left:274px;top:90px;
+background-color:rgba(229,229,299,0.5);
+width:800px;height:400px;text-align:center;}
+</style>
+
+<div id="back">
+<div style="position:relative;top:30%;">
+    <h1>Thank you</h1>
+    <p>Your order has been successfully completed. Your order number is <strong>{{ order.id }}</strong>.</p>
+    <a href="{% url 'shop:product_list' %}"><font color=red size=4px>Continue shopping</font></a>
+    </div>
+    </div>
+{% endblock %}

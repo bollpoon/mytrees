@@ -1,0 +1,134 @@
+{% extends 'shop/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Your shopping cart
+{% endblock %}
+
+{% block content %}
+<style>
+        #main_ShopCart{position:fixed;Left:15%;top:20%;text-align: center;
+        width:68%;Height:74%;background-color:rgba(233,241,246,100);
+        border-radius:20px;border:10px solid rgba(172,197,244,100);
+        overflow-y:scroll;overflow-x:hidden;}
+        
+        #main_ShopCart_2{position:absolute;top:24px;text-align: center;left:-20px;
+        width:102%;Height:100%;padding:0px 20px;margin:-10px 0px;
+        border-radius:10px;
+        overflow-y:scroll;overflow-x:hidden;}
+        
+        #main_ShopCart_Within{position:fixed;overflow-x:hidden;
+        Left:17%;top:24%;width:64%;Height:66%;background-color:rgba(172,197,244,100);
+        border-radius:20px 20px 20px 20px;border:10px solid rgba(172,197,244,100);}
+        
+        #main_shop{position:relative;top:4px;text-align: center;
+        width:840px;Height:200px;left:0px;margin:10px;
+        border-radius:10px;}
+        
+        #main_Shop_A{position:absolute;color:rgba(255,255,255);
+        width:140px;height:30px;text-align: center;
+        border-radius:15px 15px 15px 15px;border:5px solid rgba(234,241,246,100);}
+        
+        #main_ShopCart_Information{position:relative;left:180px;top:0px;
+        width:600px;Height:160px;background-color:rgba(172,197,244,100);
+        border-radius:20px 20px 20px 20px;border:4px solid rgba(233,241,246,100);}
+     
+        #main_ShopCart_Information_Ab{position:absolute;
+        Left:37%;top:23%;width:38%;Height:17%;background-color:rgba(229,229,229,100);
+        border-radius:20px 20px 20px 20px;border:10px solid rgba(229,229,229,100);}
+       
+        #quantity{position:relative;top:-160px;left:300px;
+        width:200px;height:200px;}
+        
+        #quality{position:relative;top:-360px;left:260px;
+        width:200px;height:200px;}
+        
+        #product_remove{position:relative;top:260px;left:40px;color:rgba(255,255,255 );
+        width:200px;height:200px;}
+        
+        #total{position:relative;top:-202px;left:280px;color:rgba(255,255,255 );
+        width:100px;height:18px;background-color:rgba(228,198,208);
+        border-radius:45px;border:5px solid rgba(229,229,229,100);}
+        
+        #product_detail{position:relative;top:-120px;left:200px;color:rgba(255,255,255 );
+        width:400px;}
+        
+        #cart_pic{position:relative;left:5px;top:5px;
+        width:140px;height:140px;border-radius:20px 20px 20px 20px;}
+        
+        #buy{position:relative;top:-100px;right:-240px;width:110px;height:60px;
+        background-color:rgba(172,197,244);color:rgba(255,255,255);
+        border-radius:45px;border:5px solid rgba(229,229,229,100);
+        text-align: center;}
+        
+        #continue{position:fixed;top:620px;right:300px;width:220px;height:20px;
+        background-color:rgba(172,197,244);color:rgba(255,255,255);
+        border-radius:45px;border:5px solid rgba(229,229,229,100);
+        text-align: center;}
+        
+</style>
+    <h1 style="text-align: center;height:40px;width:90px;border-radius:45px;background-color:rgba(228,198,208);border:4px solid rgba(229,229,229,100);color:rgba(255,255,255);position:fixed;left:50px;">
+    <font size=5px>收藏夹</font>
+    </h1>
+
+            <div><input id="main_ShopCart" >
+            <div id="main_ShopCart_Within">            
+            <div id="main_ShopCart_2">
+            {% for item in box %}
+            {% with product=item.product %}
+            <div id="main_shop">
+            <a href="{{ product.get_absolute_url }}">
+            <div id="main_Shop_A">{{ product.name }}
+            
+            <div id="main_ShopCart_Information">
+            <div id="cart_pic"><img id="cart_pic" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"alt=""></a>
+            </div>
+            <div id="product_detail">
+            {{product.detail_name}}
+            <br/>
+            尺码： {{product.youfei}}
+            <br/>
+            颜色分类： {{product.beizhu}}
+            <br/>
+            <div class="num">单价：${{ item.price }}</div>
+            
+            </div>
+
+            <div id="quality">
+            <div id="product_remove"><a href="{% url 'box:box_remove' product.id %}"><font color=white>Remove</font></a></div>
+            
+            
+            <form  action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input id="buy"  type="submit" value="添加购物车">
+            </form>
+            {{ product.description|linebreaks }}
+            
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            {% endwith %}
+            {% endfor %}      
+            </div>
+            </div>
+            </div>
+    
+                    <div class="cart">
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% else %}
+                    <a href="{% url 'cart:cart_detail' %}" >
+                    <img style="border-radius:90px 90px 90px 90px;position:fixed;bottom:7%;right:4%;height:70px;width:70px;" src="{% static "car.jpg" %}">
+                    </a>
+                {% endif %}
+                {% endwith %}
+                </div>
+
+{% endblock %}

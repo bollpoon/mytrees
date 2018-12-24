@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body style = "background:rgba(241,246,253)"> 
+        {% csrf_token %}
+        {% load staticfiles %}
+        <form action="{% url 'login' %}" method="post">
+        <style>
+        #main_home {position:fixed;top:5%;border:2px solid rgba(0,172,236);
+        font-size:20px;width:10%;Height:70px;color:rgba(255,255,255,100);
+        background-color:rgba(0,172,236);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 17%;}
+        
+        #main_circle {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 32%;} 
+        
+        #main_message {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 58%;}    
+        
+        #main_box {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 72%;}   
+        
+        #main_add {position:fixed;top:3%;width:70px;
+        height:70px;left:50%;margin-left:-35px;} 
+        
+        #main_top {position:fixed;top:8px;left:0%;Width:100%;Height:95px;background-color:
+        rgba(255,255,255,100);border-bottom:2px solid rgba(0,174,239);}
+        
+        .divcss5{width:100%; height:600px;position:fixed;bottom:0px;} 
+        .divcss5 img{position:fixed;bottom:0px;max-width:68%;
+        _width:expression(this.width > 600 ? "600px" : this.width);} 
+
+        input::-webkit-input-placeholder {
+        background-color:rgba(255,255,255,0.5);color: #aab2bd; }
+        
+        #mian_category{position:absolute;Left:4%;top:15%;
+        width:40px;Height:40px;
+        text-align: center;color:rgba(255,255,255);
+        background-color:rgba(288,198,208);
+        border:7px solid rgba(233,241,246);
+        border-radius:90px 90px 90px 90px;
+        }
+        
+        #mian_self_interest{position:absolute;right:4%;top:15%;
+        width:40px;Height:40px;
+        text-align: center;color:rgba(255,255,255);
+        background-color:rgba(288,198,208);
+        border:7px solid rgba(233,241,246);
+        border-radius:90px 90px 90px 90px;
+        }
+        
+        #main_Choose_Left{position:absolute;
+        left:5%;top:19%;
+        width:18%;Height:21%;
+        background-color:rgba(172,197,244,0.8);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.8);}
+        
+        #main_Choose_Right{position:absolute;
+        Right:5%;top:19%;
+        width:18%;Height:21%;
+        background-color:rgba(172,197,244,0.8);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.8);}
+        
+        #main_Title_Left_A{
+        position:absolute;Left:8%;top:23%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}     
+        #main_Title_Left_B{position:absolute;Left:13%;top:24%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_C{position:absolute;Left:18.5%;top:24.5%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Left_D{position:absolute;Left:8%;top:29%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_E{position:absolute;Left:13%;top:29%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_F{position:absolute;Left:18%;top:29%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Left_G{position:absolute;Left:8%;top:35%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_H{position:absolute;Left:13%;top:35%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Left_I{position:absolute;Left:17.5%;top:35%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_A{position:absolute;Right:16%;top:23%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_B{position:absolute;Right:9%;top:23%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_C{position:absolute;Right:16%;top:29%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_D{position:absolute;Right:9%;top:29%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        #main_Title_Right_E{position:absolute;Right:16%;top:35%;
+        font-size:18px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        #main_Title_Right_F{position:absolute;Right:9%;top:35%;
+        font-size:15px;
+        background-color:rgba(172,197,244,0);
+        border-radius:20px 20px 20px 20px;
+        border:0px;}
+        
+        
+        #main_Show_Left_A{position:absolute;
+        Left:8%;top:50%;
+        width:30%;Height:35%;
+        background-color:rgba(233,241,246,0.5);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.5);}
+        
+        #main_Show_Right_A{position:absolute;
+        Left:60%;top:50%;
+        width:30%;Height:35%;
+        background-color:rgba(233,241,246,0.5);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.5);}
+        
+        #main_Show_Left_B{position:absolute;
+        Left:8%;top:93%;
+        width:30%;Height:35%;
+        background-color:rgba(233,241,246,0.5);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.5);}
+        
+        #main_Show_Right_B{position:absolute;
+        Left:60%;top:93%;
+        width:30%;Height:35%;
+        background-color:rgba(233,241,246,0.5);
+        border-radius:20px 20px 20px 20px;
+        border:10px solid rgba(233,241,246,0.5);}
+        
+        #main_search{
+        position:absolute;top:5%;width:47%;left:30%;
+        text-align: center;
+        width:40%;Height:8%;
+        background-color:rgba(255,255,255);
+        border:2px solid rgba(255,255,255);
+        border-radius:10px
+        }
+        
+        </style>
+           <div id ="main_top">
+            <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
+            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
+            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            </div>
+            </div>
+            
+            
+            <div style = "position:fixed;left:0%;bottom:0%;Width:100%;Height:546px;background-color:rgba(228,198,208)">
+            <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
+            
+            <div style="position:absolute;Height:546px;bottom:0px;width:102%;overflow-y:scroll;overflow-x:hidden;">   
+            <input id="main_search" type="text" name="account" placeholder="你想搜索什么呢..."><br />
+            
+            
+            
+            <MARQUEE behavior="scroll" direction=up width=70% height=70% scrollamount="1" scrolldelay="60" onmouseover="this.stop()" onmouseout="this.start()">
+            <a target="cont" href="连接地址"><img src="http://图片地址" idth="88" height="33" border="0"></a>
+            <a target="cont" href="连接地址"><img src="图片地址" width="88" height="33" border="0"></a>
+            </marquee>
+            
+            
+            
+            <input id = "main_Choose_Left" >
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_A" type="button" value="服装"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_B" type="button" value="常服"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_C" type="button" value="JK"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_D" type="button" value="饰品"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_E" type="button" value="发簪"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_F" type="button" value="璎珞"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_G" type="button" value="家具"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_H" type="button" value="陶瓷"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Left_I" type="button" value="捕梦网"></a>
+            <input id="mian_category" type="Text" value="分类">
+            
+            <input id = "main_Choose_Right" >
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_A" type="button" value="汉服复兴"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_B" type="button" value="长袄"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_C" type="button" value="汉服配饰"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_D" type="button" value="团扇"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_E" type="button" value="汉服日常"></a>
+            <a href= "/tree/loginOK"><input id = "main_Title_Right_F" type="button" value="对夹"></a>
+            <input id="mian_self_interest" type="Text" value="感兴趣的">
+            
+            <table><input id = "main_Show_Left_A" >
+            <img style = "Width:170px;Height:150px;position:absolute;left:11%;top:56%"  src="{% static "linshen.png" %}"">
+            <div style="position:absolute; z-index:2; left:26%; top:55%">￥50.00</div>
+            <div style="position:absolute; z-index:2; left:26%; top:62%"><b>林深时见鹿</b></div>
+            <div style="position:absolute; z-index:2; left:26%; top:69%">林深时见鹿原<br />创海蓝款半米<br />流苏禁步</div>
+            <input id = "main_Show_Right_A" ><a/>
+            <img style = "Width:170px;Height:150px;position:absolute;left:63%;top:56%"  src="{% static "qingyan.png" %}">
+            <div style="position:absolute; z-index:2; left:78%; top:55%">￥65.00</div>
+            <div style="position:absolute; z-index:2; left:78%; top:62%"><b>清言辞序</b></div>
+            <div style="position:absolute; z-index:2; left:78%; top:69%">清言辞序原<br />创立领套装</div>
+            <input id = "main_Show_Left_B" ><a/>
+            <img style = "Width:170px;Height:150px;position:absolute;left:11%;top:99%"  src="{% static "yizhimei.png" %}">
+            <div style="position:absolute; z-index:2; left:26%; top:98%">￥40.00</div>
+            <div style="position:absolute; z-index:2; left:26%; top:105%"><b>聊赠一枝春</b></div>
+            <div style="position:absolute; z-index:2; left:26%; top:112%">聊赠一枝春原<br />创花枝单簪</div>
+            <input id = "main_Show_Right_B" ><a/>
+            <img style = "Width:170px;Height:150px;position:absolute;left:63%;top:99%"  src="{% static "rujing.png" %}">
+            <div style="position:absolute; z-index:2; left:78%; top:98%">￥20.00</div>
+            <div style="position:absolute; z-index:2; left:78%; top:105%"><b>如鲸向海</b></div>
+            <div style="position:absolute; z-index:2; left:78%; top:112%">如鲸向海原创<br />鲸鱼玛瑙贴面<br />小对钗</div>
+            </div>
+            
+            </div>
+            
+            
+        </form>
+</body>
+</html>

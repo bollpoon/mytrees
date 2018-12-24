@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>关注的帖子</title>
+</head>
+<body style = "background:rgba(241,246,253)"> 
+        {% csrf_token %}
+        {% load staticfiles %}
+        <form action="{% url 'login' %}" method="post">
+        <style>
+        #main_home {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 17%;}
+        
+        #main_circle {position:fixed;top:5%;border:2px solid rgba(0,172,236);
+        font-size:20px;width:10%;Height:70px;color:rgba(255,255,255,100);
+        background-color:rgba(0,172,236);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 32%;} 
+        
+        #main_message {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 58%;}    
+        
+        #main_box {position:fixed;top:5%;border:2px solid rgba(233,241,246);
+        font-size:20px;width:10%;Height:70px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246);border-radius:90px 90px 0px 0px;
+        text-align: center;margin:0% 72%;}   
+        
+        #main_add {position:fixed;top:3%;width:70px;
+        height:70px;left:50%;margin-left:-35px;} 
+        
+        #main_top {position:absolute;top:8px;left:0%;Width:100%;Height:95px;background-color:
+        rgba(255,255,255,100);border-bottom:2px solid rgba(0,174,239);}
+        
+        #main_middle {overflow: hidden;overflow-y:scroll;
+        border-radius:20px 0px 0px 20px;
+        position:absolute;top:1%;left:21%;Width:82%;
+        Height:100%;background-color:rgba(255,255,255,0.5);}
+        
+        #main_topic_1 {position:absolute;left:4%;bottom:436px;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
+        border:0px;background-color:rgba(255,255,255,0.7);}
+        
+        #send{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:460px;}
+        
+        #friend{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:368px;}
+        
+        #self_opinion{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:276px;}
+        
+        #interest{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(255,255,255,100);
+        background-color:rgba(0,172,236,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:184px;}
+        
+        #news{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:92px;}
+        
+        #add_2{border:0px;border-radius:0px 10px 10px 0px;
+        font-size:20px;color:rgba(0,0,0);
+        background-color:rgba(233,241,246,0.5);text-align: center;
+        width:20%; height:85px;position:fixed;bottom:0px;}
+        
+        .divcss5{width:100%; height:600px;position:fixed;bottom:0px;} 
+        .divcss5 img{position:fixed;bottom:0px;max-width:68%;
+        _width:expression(this.width > 600 ? "600px" : this.width);} 
+        
+        </style>
+           <div id ="main_top">
+            <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
+            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
+            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            </div>
+            </div>
+            
+            <div style = "position:fixed;left:0%;bottom:0%;Width:100%;Height:546px;background-color:rgba(228,198,208)">
+            <div>
+            </div>
+            <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
+            <div>
+            <a href= "/tree/circle"><input id = "send" type="button" value="推荐"></a>
+            <a href= "/tree/friend"><input id = "friend" type="button" value="好友"></a>
+            <a href= "/tree/self_opinion"><input id = "self_opinion" type="button" value="历史发帖"></a>
+            <a href= "/tree/interest"><input id = "interest" type="button" value="关注"></a>
+            <a href= "/tree/news"><input id = "news" type="button" value="通知"></a>
+            <a href= "/tree/add_2"><input id = "add_2" type="button" value="发芽"></a>
+            </div>
+            
+            <div id = "main_middle">
+            <a href= "/tree/main_topic_1"><input id = "main_topic_1" type="button"></a>
+            <a href= "/tree/main_topic_1"><input id = "main_topic_2" type="button"></a>
+            <a href= "/tree/main_topic_1"><input id = "main_topic_3" type="button"></a>
+            <a href= "/tree/main_topic_1"><input id = "main_topic_4" type="button"></a>
+            <a href= "/tree/main_topic_1"><input id = "main_topic_5" type="button"></a>
+            <a href= "/tree/main_topic_1"><input id = "main_topic_6" type="button"></a>
+            </div>
+        </form>
+</body>
+</html>
