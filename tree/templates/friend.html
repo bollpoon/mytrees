@@ -40,27 +40,27 @@
         position:absolute;top:1%;left:21%;Width:82%;
         Height:100%;background-color:rgba(255,255,255,0.5);}
         
-        #main_topic_1 {position:absolute;left:4%;bottom:436px;
+        #main_topic_1 {position:absolute;left:4%;bottom:436px;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;
+        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;
+        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;
+        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;
+        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;
+        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
@@ -101,13 +101,13 @@
         </style>
            <div id ="main_top">
             <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
-            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
-            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "http://localhost:8000"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
             <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
-            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
-            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
-            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
-            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            <a href= "http://localhost:8000/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "http://localhost:8000/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
             </div>
             </div>
             
@@ -116,7 +116,7 @@
             </div>
             <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
             <div>
-            <a href= "/tree/circle"><input id = "send" type="button" value="推荐"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "send" type="button" value="推荐"></a>
             <a href= "/tree/friend"><input id = "friend" type="button" value="好友"></a>
             <a href= "/tree/self_opinion"><input id = "self_opinion" type="button" value="历史发帖"></a>
             <a href= "/tree/interest"><input id = "interest" type="button" value="关注"></a>
@@ -125,12 +125,36 @@
             </div>
             
             <div id = "main_middle">
-            <a href= "/tree/main_topic_1"><input id = "main_topic_1" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_2" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_3" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_4" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_5" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_6" type="button"></a>
+            <div id = "main_topic_1">
+            <br/>
+            <font size="4px">好友：雨落云</font><br/><br>
+            <font size="3px">汉风迷人 中衣,圆领袍,中衣中裤布料很舒服,中裤有束脚有口袋...</font>
+            </div> 
+            <div id = "main_topic_2">
+            <br/>
+            <font size="4px">好友：召南</font><br/><br>
+            <font size="3px">山中清音自岁月,召南采诗胡不归</font>
+            </div>
+            <div id = "main_topic_3">
+            <br/>
+            <font size="4px">好友：木图水色</font><br/><br>
+            <font size="3px">有没有白菜的红色袄裙推荐啊</font>
+            </div>
+            <div id = "main_topic_4">
+            <br/>
+            <font size="4px">好友：落铜</font><br/><br>
+            <font size="3px">今日安利 同生轩 杏林秋影 338...</font>
+            </div>
+            <div id = "main_topic_5">
+            <br/>
+            <font size="4px">特别关注：W豆腐甜即正义W</font><br/><br>
+            <font size="3px">画了一个汉服小姐姐，不能只画小姐姐，还要画小哥哥，不然不会画小姐姐了orz...</font>
+            </div>
+            <div id = "main_topic_6">
+            <br/>
+            <font size="4px">好友：西瓜家的吃土簪娘</font><br/><br>
+            <font size="3px">今天圣诞节,晚上八点开奖送发饰一件，欢迎大家关注我的店铺...</font>
+            </div>
             </div>
         </form>
 </body>

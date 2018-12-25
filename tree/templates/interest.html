@@ -40,29 +40,29 @@
         position:absolute;top:1%;left:21%;Width:82%;
         Height:100%;background-color:rgba(255,255,255,0.5);}
         
-        #main_topic_1 {position:absolute;left:4%;bottom:436px;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_1 {position:absolute;left:4%;bottom:360px;
+        border-radius:20px 20px 20px 20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
-        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_2 {position:absolute;left:54%;bottom:360px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
-        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_3 {position:absolute;left:4%;bottom:250px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
-        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_4 {position:absolute;left:54%;bottom:250px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
-        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_5 {position:absolute;left:4%;bottom:140px;Width:75%;
+        border-radius:20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
-        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;
-        border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
-        border:0px;background-color:rgba(255,255,255,0.7);}
+        #main_topic_6 {position:absolute;left:54%;bottom:140px;Width:75%;
+        border-radius:20px 20px 20px 20px;Width:40%;Height:100px;
+        border:0px;background-color:rgba(0,172,236,0.5);}
         
         #send{border:0px;border-radius:0px 10px 10px 0px;
         font-size:20px;color:rgba(0,0,0);
@@ -98,16 +98,20 @@
         .divcss5 img{position:fixed;bottom:0px;max-width:68%;
         _width:expression(this.width > 600 ? "600px" : this.width);} 
         
+        #pic_friend {position:relative;width:70px;left:130px;top:-4px;
+        height:70px;border-radius:90px;} 
+        
+        #shop_sale {position:relative;left:220px;top:-56px;}
         </style>
            <div id ="main_top">
             <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
-            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
-            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "http://localhost:8000"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
             <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
-            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
-            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
-            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
-            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            <a href= "http://localhost:8000/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "http://localhost:8000/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
             </div>
             </div>
             
@@ -116,7 +120,7 @@
             </div>
             <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
             <div>
-            <a href= "/tree/circle"><input id = "send" type="button" value="推荐"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "send" type="button" value="推荐"></a>
             <a href= "/tree/friend"><input id = "friend" type="button" value="好友"></a>
             <a href= "/tree/self_opinion"><input id = "self_opinion" type="button" value="历史发帖"></a>
             <a href= "/tree/interest"><input id = "interest" type="button" value="关注"></a>
@@ -125,12 +129,39 @@
             </div>
             
             <div id = "main_middle">
-            <a href= "/tree/main_topic_1"><input id = "main_topic_1" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_2" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_3" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_4" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_5" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_6" type="button"></a>
+            <div style="position:relative;top:20px;left:20px;"><font size="4px">好友：▶<br/>店铺：▽</font></div>
+            <div id = "main_topic_1">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_1.jpg" %}">
+            <div id="shop_sale"><font size="3px">念云裳</font></div>
+            </div> 
+            <div id = "main_topic_2">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_2.jpg" %}">
+            <div id="shop_sale"><font size="3px">思君亭</font></div>
+            </div>
+            <div id = "main_topic_3">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_6.jpg" %}">
+            <div id="shop_sale"><font size="3px">绯红鸟</font></div>
+            </div>
+            <div id = "main_topic_4">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_3.jpg" %}">
+            <div id="shop_sale"><font size="3px">空谷记</font></div>
+            </div>
+            <div id = "main_topic_5">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_4.jpg" %}">
+            <div id="shop_sale"><font size="3px">诗词歌服</font></div>
+            </div>
+            <div id = "main_topic_6">
+            <br/>
+            <img id = "pic_friend" src="{% static "friend_5.jpg" %}">
+            <div id="shop_sale"><font size="3px">暮雪阁</font></div>
+            </div>
+            
+            <div style="position:absolute;bottom:100px;left:20px;"><font size="4px">特别关心：▶</font></div>
             </div>
         </form>
 </body>

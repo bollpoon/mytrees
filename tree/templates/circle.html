@@ -40,27 +40,27 @@
         position:absolute;top:1%;left:21%;Width:82%;
         Height:100%;background-color:rgba(255,255,255,0.5);}
         
-        #main_topic_1 {position:absolute;left:4%;bottom:436px;
+        #main_topic_1 {position:absolute;left:4%;bottom:436px;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;
+        #main_topic_2 {position:absolute;left:4%;bottom:326px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;
+        #main_topic_3 {position:absolute;left:4%;bottom:216px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;
+        #main_topic_4 {position:absolute;left:4%;bottom:106px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;
+        #main_topic_5 {position:absolute;left:4%;bottom:-4px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
-        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;
+        #main_topic_6 {position:absolute;left:4%;bottom:-114px;Width:75%;text-align: center;
         border-radius:20px 20px 20px 20px;Width:90%;Height:100px;
         border:0px;background-color:rgba(255,255,255,0.7);}
         
@@ -101,13 +101,13 @@
         </style>
            <div id ="main_top">
             <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
-            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
-            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "http://localhost:8000"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
             <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
-            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
-            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
-            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
-            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            <a href= "http://localhost:8000/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "http://localhost:8000/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
             </div>
             </div>
             
@@ -115,8 +115,9 @@
             <div>
             </div>
             <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
+            
             <div>
-            <a href= "/tree/send"><input id = "send" type="button" value="推荐"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "send" type="button" value="推荐"></a>
             <a href= "/tree/friend"><input id = "friend" type="button" value="好友"></a>
             <a href= "/tree/self_opinion"><input id = "self_opinion" type="button" value="历史发帖"></a>
             <a href= "/tree/interest"><input id = "interest" type="button" value="关注"></a>
@@ -125,12 +126,36 @@
             </div>
             
             <div id = "main_middle">
-            <a href= "/tree/main_topic_1"><input id = "main_topic_1" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_2" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_3" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_4" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_5" type="button"></a>
-            <a href= "/tree/main_topic_1"><input id = "main_topic_6" type="button"></a>
+            <div id = "main_topic_1">
+            <br/>
+            <font size="4px">西塘汉服文化周：我的梦里水乡，处处都是寒假衣裳</font><br/><br>
+            <font size="3px">新一年的西塘汉服文化周即将来了,如果说汉服改变了我,带着我做了了很多从前不敢想的事情...</font>
+            </div> 
+            <div id = "main_topic_2">
+            <br/>
+            <font size="4px">披风流行季|行走的风度，停留的温度</font><br/><br>
+            <font size="3px">若说秋冬时装少不了风衣搭配,那秋冬汉服则少不了披风相衬。行走间带着风度，还能让温暖...</font>
+            </div>
+            <div id = "main_topic_3">
+            <br/>
+            <font size="4px">吃货党的汉式生活|不负冬日,美人美味美滋滋</font><br/><br>
+            <font size="3px">下周就是冬至了,不知大家是否和小编一样,每到过节不由就会想：今天突破Ian过节习俗是吃...</font>
+            </div>
+            <div id = "main_topic_4">
+            <br/>
+            <font size="4px">踏雪寻梅装|一袭斗篷,潇洒俏丽风雪行</font><br/><br>
+            <font size="3px">最喜年年大雪时,踏雪寻梅,围炉赏雪,雪水煮茶...</font>
+            </div>
+            <div id = "main_topic_5">
+            <br/>
+            <font size="4px">颈间流光|亭下佳人锦绣衣,满身璎珞缀明玑</font><br/><br>
+            <font size="3px">璎珞,仅看这两字,只觉得满纸琳琅。它或被装点于脖颈,或严饰周身。行动间,七宝清荡,其中...</font>
+            </div>
+            <div id = "main_topic_6">
+            <br/>
+            <font size="4px">山海异闻录|绚烂神秘,教你用汉服演绎上古传奇</font><br/><br>
+            <font size="3px">山海经是一本充满神奇色彩的著作,内容无奇不有,无所不包,蕴藏着丰富的地理学，神话学...</font>
+            </div>
             </div>
         </form>
 </body>

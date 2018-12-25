@@ -39,25 +39,124 @@
         .divcss5 img{position:fixed;bottom:0px;max-width:68%;
         _width:expression(this.width > 600 ? "600px" : this.width);} 
         
+        #left_self{position:fixed;height:500px;width:240px;top:136px;left:20px;
+        ;background-color:rgba(228,197,208);border-radius:20px;
+        }
+        
+        #self_information{position:relative;left:0px;top:30px;
+        text-align: center;}
+        
+        #mmm{position:relative;left:20px;bottom:10px;background-color:rgba(233,241,246);
+        width:200px;height:100px;text-align: center;border-radius:10px;}
+        
+        #xiang{position:absolute;top:20px;left:350px;text-align: center;
+        width:100px;height:100px;border-radius:90px;
+        background-color:rgba(233,241,246);border:5px solid rgba(228,198,208);}
+        
+        #ping{position:absolute;top:20px;left:545px;text-align: center;
+        width:100px;height:100px;border-radius:90px;
+        background-color:rgba(228,198,208);border:5px solid rgba(233,241,246);}
+        
+        #dian{position:absolute;top:20px;left:740px;text-align: center;
+        width:100px;height:100px;border-radius:90px;
+        background-color:rgba(233,241,246);border:5px solid rgba(228,198,208);}
+        
+        #guan{position:absolute;top:20px;left:935px;text-align: center;
+        width:100px;height:100px;border-radius:90px;
+        background-color:rgba(228,198,208);border:5px solid rgba(233,241,246);}
+        
+        #fen{position:absolute;top:20px;left:1130px;text-align: center;
+        width:100px;height:100px;border-radius:90px;
+        background-color:rgba(233,241,246);border:5px solid rgba(228,198,208);}
+        
+        #zz_1{position:absolute;top:160px;left:320px;text-align: center;
+        width:160px;height:60px;border-radius:20px;
+        background-color:rgba(152,242,198);border:5px solid rgba(233,241,246);}
+        
+        #zz_2{position:absolute;top:160px;left:515px;text-align: center;
+        width:160px;height:60px;border-radius:20px;
+        background-color:rgba(233,241,246);border:5px solid rgba(152,242,198);}
+        
+        #zz_3{position:absolute;top:160px;left:710px;text-align: center;
+        width:160px;height:60px;border-radius:20px;
+        background-color:rgba(152,242,198);border:5px solid rgba(233,241,246);}
+        
+        #zz_4{position:absolute;top:160px;left:905px;text-align: center;
+        width:160px;height:60px;border-radius:20px;
+        background-color:rgba(152,242,198);border:5px solid rgba(233,241,246);}
+        
+        #zz_5{position:absolute;top:160px;left:1100px;text-align: center;
+        width:160px;height:60px;border-radius:20px;
+        background-color:rgba(152,242,198);border:5px solid rgba(233,241,246);}
+        
+        #zz_6{position:absolute;top:260px;left:320px;text-align: center;
+        width:940px;height:230px;border-radius:20px;
+        background-color:rgba(233,241,246);border:5px solid rgba(152,242,198);}
+        
         </style>
            <div id ="main_top">
             <img  style = "position:fixed;top:4%;left:4%;margin:5px" src="{% static "logo.png" %}" width=100px height=50px>
-            <a href= "/tree/loginOK"><input id = "main_home" type="button" value="首页"></a>
-            <a href= "/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
+            <a href= "http://localhost:8000"><input id = "main_home" type="button" value="首页"></a>
+            <a href= "http://localhost:8000/tree/circle"><input id = "main_circle" type="button" value="木友"></a>
             <a href= "/tree/add"><img id = "main_add" src="{% static "add.png" %}"></a>
-            <a href= "/tree/message"><input id = "main_message" type="button" value="消息"></a>
-            <a href= "/tree/box"><input id = "main_box" type="button" value="藏品"></a>
-            <a href= "/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
-            <a href= "/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
+            <a href= "http://localhost:8000/tree/message"><input id = "main_message" type="button" value="消息"></a>
+            <a href= "http://localhost:8000/box"><input id = "main_box" type="button" value="藏品"></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "Width:120px;Height:120px;position:absolute;right:5%;top:-20%"  src="{% static "head.png" %}""></a>
+            <a href= "http://localhost:8000/tree/_self"><img style = "border-radius:45px;Width:60px;Height:60px;position:absolute;right:6%;top:20%"  src="{% static "head_2.jpg" %}")></a>
             </div>
             </div>
             
             
-            <div style = "position:fixed;left:0%;bottom:0%;Width:100%;Height:546px;background-color:rgba(228,198,208)">
+            <div style = "position:fixed;left:0%;bottom:0%;Width:100%;Height:546px;background-color:rgba(172,197,244)">
             <div>
             </div>
             <div class="divcss5"> <img src="{% static "back_tree.png" %}"> </div> 
+            
+            <div id="left_self">
+            <img style = "Width:120px;Height:120px;position:relative;left:40px;top:20px;"  src="{% static "head.png" %}"">
+            <img style = "border-radius:45px;Width:60px;Height:60px;position:relative;left:-40px;top:0px"  src="{% static "head_2.jpg" %}")>
+            <div id="self_information">
+            <font size="2px">编辑个人信息</font><br/><br/>
+            <font size="5px">清澈女孩</font><br/><br/>
+            <font size="4px">信用<br/><br/></font>
+            <img style="border-radius:90px;height:30px;width:30px;" src="{% static "tree.jpg" %}")>
+           <img style="border-radius:90px;height:30px;width:30px;" src="{% static "tree.jpg" %}")>
+           <img style="border-radius:90px;height:30px;width:30px;" src="{% static "tree.jpg" %}")>
+           <img style="border-radius:90px;height:30px;width:30px;" src="{% static "tree.jpg" %}")>
+           <img style="border-radius:90px;height:30px;width:30px;" src="{% static "tree.jpg" %}")>
+           <br/><br/>
+           <font size="4px">个人简介<br/><br/></font>
+           <div id="mmm"><font size="2px">这个人炒懒<br>不会发芽了</font></div>
+            </div>
+            
+            
+            <div id="xiang">
+            <img style="position:relative;left:2px;top:20px;height:50px;width:50px;" src="{% static "pic.png" %}")>
+            <br/><br>相册</div>
+            <div id="ping"><img style="position:relative;left:2px;top:0px;border-radius:90px;height:100px;width:100px;" src="{% static "wenhao.png" %}")>
+            <br/><br><div style="position:relative;left:2px;top:-50px;">评论</div></div>
+            <div id="dian"><img style="position:relative;left:2px;top:20px;height:50px;width:50px;" src="{% static "xindian.png" %}")>
+            <br/><br>点赞</div>
+            <div id="guan"><img style="position:relative;left:2px;top:20px;border-radius:90px;height:50px;width:50px;" src="{% static "guanzhu.png" %}")>
+            <br/><br>关注</div>
+            <div id="fen"><img style="position:relative;left:2px;top:20px;border-radius:90px;height:50px;width:50px;" src="{% static "fesi.png" %}")>
+            <br/><br>粉丝</div>
+            
+            <div id="zz_1">
+            <div style="position:relative;top:18px;"><font size="4px">未发货</font></div>
+            </div>
+            <div id="zz_2"><div style="position:relative;top:14px;"><font size="5px">物流中</font></div>
+            </div>
+            <div id="zz_3"><div style="position:relative;top:18px;"><font size="4px">待签收</font></div>
+            </div>
+            <div id="zz_4"><div style="position:relative;top:18px;"><font size="4px">待评价</font></div>
+            </div>
+            <div id="zz_5"><div style="position:relative;top:18px;"><font size="4px">历史交易</font></div>
+            </div>
+            
+            <div id="zz_6"><div>
             </div>
         </form>
 </body>
+
 </html>
